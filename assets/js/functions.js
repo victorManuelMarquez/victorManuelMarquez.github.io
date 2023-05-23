@@ -1,4 +1,4 @@
-for (let i=1; i<=12; i++) {
+for (let i=1; i<=17; i++) {
     // JQuery -> cargo el código en cada elemento por ID
     // fuente: https://stackoverflow.com/questions/28007813/how-to-show-javascript-code-in-html
     $("#codeTP1-"+i).load("Ejercicio_" + i + ".js");
