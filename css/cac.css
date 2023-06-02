@@ -1,0 +1,36 @@
+:root {
+    --brillo-img: 45%;
+}
+
+body {
+    min-height: 75rem;
+    padding-top: 3rem;
+}
+
+.carousel {
+    margin-bottom: 4rem;
+}
+
+.carousel-item {
+    filter: brightness(var(--brillo-img));
+    -webkit-filter: brightness(var(--brillo-img));
+    -moz-filter: brightness(var(--brillo-img));
+    -o-filter: brightness(var(--brillo-img));
+    -ms-filter: brightness(var(--brillo-img));
+}
+
+.carousel-item img {
+    object-fit: cover;
+    object-position: center;
+    min-height: 90vh;
+    width: 100%;
+}
+
+.charla-ignite {
+    text-decoration: dotted underline;
+    color: inherit;
+}
+
+footer {
+    background-image: linear-gradient(to right, #1c3643, #1e5372);
+}

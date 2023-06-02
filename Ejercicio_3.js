@@ -1,1 +1,0 @@
-console.log("Hola " + prompt("Ingrese su nombre:") + "!");
