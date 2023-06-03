@@ -2,14 +2,6 @@
     --brillo-img: 65%;
 }
 
-/* Ajustes para la imágen del carrusel */
-.carousel-item img {
-    height: 100vh;
-    width: 100%;
-    object-fit: cover;
-    object-position: top center;
-}
-
 /* "Oscurece" la imágen */
 .polarizar-img {
     filter: brightness(var(--brillo-img));
@@ -34,6 +26,18 @@
     background-size: cover;
     height: 100vh;
     width: 100%;
+}
+
+@media (max-height: 576px) {
+    #la-conferencia .carousel-caption {
+        top: 20%;
+        bottom: 0;
+    }
+
+    #la-conferencia .carousel-caption p {
+        padding-right: 1rem;
+        max-height: 40%;
+    }
 }
 
 @media (min-width: 768px) {
