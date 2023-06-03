@@ -47,12 +47,18 @@ footer {
 @media (max-height: 576px) {
     #la-conferencia .carousel-caption {
         top: 20%;
-        bottom: 20%;
+        bottom: 0;
     }
 
     #la-conferencia .carousel-caption p {
         padding-right: 1rem;
         max-height: 40%;
+    }
+}
+
+@media (max-height: 768px) {
+    #la-conferencia .carousel-caption {
+        transform: translateY(-50%);
     }
 }
 
