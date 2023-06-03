@@ -59,7 +59,7 @@ footer {
 @media (min-width: 768px) {
     #la-conferencia .carousel-caption {
         width: 50%;
-        transform: translateY(-50%);
+        top: 50%;
     }
 
     .baires-bg {
