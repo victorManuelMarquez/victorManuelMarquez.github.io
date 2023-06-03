@@ -27,6 +27,15 @@
     width: 100%;
 }
 
+.obelisco-bg {
+    background-image: url('../assets/images/sm/ba3.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
 @media (min-width: 768px) {
     .carousel-caption {
         width: 50%;
@@ -35,11 +44,19 @@
     .baires-bg {
         background-image: url('../assets/images/md/ba1.jpg');
     }
+
+    .obelisco-bg {
+        background-image: url('../assets/images/md/ba3.jpg');
+    }
 }
 
 @media (min-width: 992px) {
     .baires-bg {
         background-image: url('../assets/images/lg/ba1.jpg');
+    }
+
+    .obelisco-bg {
+        background-image: url('../assets/images/lg/ba3.jpg');
     }
 }
 
@@ -47,10 +64,18 @@
     .baires-bg {
         background-image: url('../assets/images/xl/ba1.jpg');
     }
+
+    .obelisco-bg {
+        background-image: url('../assets/images/xl/ba3.jpg');
+    }
 }
 
 @media (min-width: 1400px) {
     .baires-bg {
         background-image: url('../assets/images/xxl/ba1.jpg');
+    }
+
+    .obelisco-bg {
+        background-image: url('../assets/images/xxl/ba3.jpg');
     }
 }
