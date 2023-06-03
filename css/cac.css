@@ -1,0 +1,56 @@
+:root {
+    --brillo-img: 65%;
+}
+
+/* Ajustes para la imágen del carrusel */
+.carousel-item img {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+    object-position: top center;
+}
+
+/* "Oscurece" la imágen */
+.polarizar-img {
+    filter: brightness(var(--brillo-img));
+    -moz-filter: brightness(var(--brillo-img));
+    -o-filter: brightness(var(--brillo-img));
+    -webkit-filter: brightness(var(--brillo-img));
+}
+
+.baires-bg {
+    background-image: url('../assets/images/sm/ba1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .carousel-caption {
+        width: 50%;
+    }
+
+    .baires-bg {
+        background-image: url('../assets/images/md/ba1.jpg');
+    }
+}
+
+@media (min-width: 992px) {
+    .baires-bg {
+        background-image: url('../assets/images/lg/ba1.jpg');
+    }
+}
+
+@media (min-width: 1200px) {
+    .baires-bg {
+        background-image: url('../assets/images/xl/ba1.jpg');
+    }
+}
+
+@media (min-width: 1400px) {
+    .baires-bg {
+        background-image: url('../assets/images/xxl/ba1.jpg');
+    }
+}
