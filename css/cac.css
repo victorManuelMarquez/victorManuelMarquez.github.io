@@ -1,5 +1,5 @@
 :root {
-    --brillo-img: 65%;
+    --brillo-img: 45%;
 }
 
 /* "Oscurece" la imágen */
@@ -28,6 +28,22 @@
     width: 100%;
 }
 
+#el-lugar-y-la-fecha {
+    border: none !important;
+}
+
+#el-lugar-y-la-fecha img {
+    display: block;
+    object-fit: cover;
+    object-position: center center;
+    height: 100%;
+    width: 100%;
+}
+
+footer {
+    background: linear-gradient(90deg, #1c3643, #1e5372);
+}
+
 @media (max-height: 576px) {
     #la-conferencia .carousel-caption {
         top: 20%;
@@ -43,6 +59,7 @@
 @media (min-width: 768px) {
     .carousel-caption {
         width: 50%;
+        transform: translateY(-50%);
     }
 
     .baires-bg {
@@ -62,6 +79,10 @@
     .obelisco-bg {
         background-image: url('../assets/images/lg/ba3.jpg');
     }
+
+    #conviertete-en-orador form {
+        max-width: 70%;
+    }
 }
 
 @media (min-width: 1200px) {
@@ -72,6 +93,10 @@
     .obelisco-bg {
         background-image: url('../assets/images/xl/ba3.jpg');
     }
+
+    #conviertete-en-orador form {
+        max-width: 60%;
+    }
 }
 
 @media (min-width: 1400px) {
@@ -81,5 +106,9 @@
 
     .obelisco-bg {
         background-image: url('../assets/images/xxl/ba3.jpg');
+    }
+
+    #conviertete-en-orador form {
+        max-width: 50%;
     }
 }
