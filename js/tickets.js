@@ -8,6 +8,12 @@ const categoriasConDescuento = {
 };
 const precio = 200;
 
+let ticketsPorCategoria = {
+    "Estudiante" : 0,
+    "Trainee" : 0,
+    "Junior" : 0
+};
+
 // CARGO LA LISTA DESPLEGABLE
 let selector = document.getElementById('categorias');
 for (let categoria in categoriasConDescuento) {
@@ -24,14 +30,16 @@ function restriccionesDeTickets(input) {
     input.setAttribute('value', minimo);
 }
 
-function actualizarTotal(descuento) {
-    let tagTotal = document.getElementById('total');
-    let pesosSymbol = tagTotal.firstChild;
-    tagTotal.removeChild(tagTotal.firstChild);
-    let total = parseFloat(tagTotal.innerText);
-    total += precio - (precio * descuento / 100); // descuento individual
-    tagTotal.innerText = total.toFixed(2);
-    tagTotal.insertBefore(pesosSymbol, tagTotal.firstChild);
+function calcularPrecio(descuento) {
+    return precio - (precio * descuento / 100);
+}
+
+function suma(total, monto) {
+    return total + monto;
+}
+
+function actualizarTotal(descuento, cantidad) {
+    return calcularPrecio(descuento) * cantidad; // descuento individual
 }
 
 // CREO EL CUERPO DE LA LISTA
@@ -94,8 +102,21 @@ function crearLista() {
     input.classList.add("form-control");
     restriccionesDeTickets(input);
     group.appendChild(input);
-    input.addEventListener("input", () => actualizarTotal(categoriasConDescuento[selector.value]));
-    actualizarTotal(categoriasConDescuento[selector.value]);
+    input.addEventListener("input", (event) => {
+        spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
+    });
+
+    let small = document.createElement('small');
+    small.classList.add("input-group-text");
+    small.innerText = "$";
+    group.appendChild(small);
+
+    let spanTotal = document.createElement('span');
+    spanTotal.id = "total" + selector.value;
+    spanTotal.classList.add("input-group-text");
+    spanTotal.innerText = (calcularPrecio(categoriasConDescuento[selector.value]) * input.value).toFixed(2);
+
+    group.appendChild(spanTotal);
 }
 
 // LISTENERS
