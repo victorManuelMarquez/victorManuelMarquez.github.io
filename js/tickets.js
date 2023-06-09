@@ -110,7 +110,7 @@ function crearLista() {
         for (let item of spanItems) {
             calculo += item.innerText;
         }
-        total.innerText = calculo.toFixed(2);
+        total.innerText = parseFloat(calculo).toFixed(2);
     });
 
     let small = document.createElement('small');
