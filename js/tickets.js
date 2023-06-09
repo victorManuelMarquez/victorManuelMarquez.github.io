@@ -106,8 +106,10 @@ function crearLista() {
         spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
         let total = document.getElementById('total');
         let inputs = group.querySelectorAll('input[type="button"]');
+        console.log(inputs);
         let calculo = 0.0;
         for (let numericalInput of inputs) {
+            console.log(numericalInput.id + " " + numericalInput.innerText);
             calculo += numericalInput.innerText;
         }
         total.innerText = calculo;
