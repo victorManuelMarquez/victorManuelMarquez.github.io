@@ -106,13 +106,11 @@ function crearLista() {
         spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
         let total = document.getElementById('total');
         let spanItems = group.querySelectorAll('span[name="total"]');
-        console.log(spanItems);
-        let calculo = 0.0;
+        let calculo = 0;
         for (let item of spanItems) {
-            console.log("txt = " + item.innerText);
             calculo += item.innerText;
         }
-        total.innerText = calculo;
+        total.innerText = calculo.toFixed(2);
     });
 
     let small = document.createElement('small');
