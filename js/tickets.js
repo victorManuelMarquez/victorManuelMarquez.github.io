@@ -76,7 +76,14 @@ function crearLista() {
     buttonStatic.setAttribute('name', selector.value);
     buttonStatic.classList.add("btn");
     buttonStatic.classList.add("btn-outline-secondary");
-    buttonStatic.innerText = selector.value;
+
+    let userIcon = document.createElement('i');
+    userIcon.classList.add("bi");
+    userIcon.classList.add("bi-person-circle");
+    userIcon.classList.add("me-2");
+    buttonStatic.appendChild(userIcon);
+
+    buttonStatic.appendChild(document.createTextNode(selector.value));
     group.appendChild(buttonStatic);
 
     let buttonDropdown = document.createElement('button');
@@ -95,10 +102,19 @@ function crearLista() {
 
     let eliminar = document.createElement('button');
     eliminar.classList.add("btn");
-    eliminar.innerText = "Borrar";
+
+    let deleteIcon = document.createElement('i');
+    deleteIcon.classList.add("bi");
+    deleteIcon.classList.add("bi-x-circle");
+    deleteIcon.classList.add("me-2");
+    eliminar.appendChild(deleteIcon);
+
+    eliminar.appendChild(document.createTextNode("Eliminar"));
+
     eliminar.addEventListener("click", () => {
         group.remove();
         establecerMontoFinal();
+        selector.selectedIndex = 0;
     });
     
     ul.firstChild.appendChild(eliminar);
@@ -147,6 +163,7 @@ function crearLista() {
 selector.addEventListener("change", (event) => {
     if (event.target.value) {
         crearLista();
+        selector.selectedIndex = 0;
     }
 });
 
@@ -156,9 +173,7 @@ if (resetBtn) {
         let form = document.getElementById('formulario');
         form.classList.remove("was-validated");
         let carrito = document.getElementById('carrito');
-        for (let item of carrito.childNodes) {
-            carrito.removeChild(item);
-        }
+        carrito.innerHTML = '';
         let total = document.getElementById('total');
         total.innerText = "0.00";
     });
