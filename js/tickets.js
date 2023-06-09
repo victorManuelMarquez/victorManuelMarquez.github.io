@@ -112,10 +112,6 @@ function crearLista() {
     input.classList.add("form-control");
     restriccionesDeTickets(input);
     group.appendChild(input);
-    input.addEventListener("input", (event) => {
-        spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
-        establecerMontoFinal();
-    });
 
     let small = document.createElement('small');
     small.classList.add("input-group-text");
@@ -128,6 +124,11 @@ function crearLista() {
     spanTotal.innerText = (calcularPrecio(categoriasConDescuento[selector.value]) * input.value).toFixed(2);
 
     group.appendChild(spanTotal);
+    
+    input.addEventListener("input", (event) => {
+        spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
+        establecerMontoFinal();
+    });
     
     establecerMontoFinal();
 }
