@@ -105,12 +105,12 @@ function crearLista() {
     input.addEventListener("input", (event) => {
         spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
         let total = document.getElementById('total');
-        let inputs = group.querySelectorAll('input[type="button"]');
-        console.log(inputs);
+        let spanItems = group.querySelectorAll('span[name="total"]');
+        console.log(spanItems);
         let calculo = 0.0;
-        for (let numericalInput of inputs) {
-            console.log(numericalInput.id + " " + numericalInput.innerText);
-            calculo += numericalInput.innerText;
+        for (let item of spanItems) {
+            console.log("txt = " + item.innerText);
+            calculo += item.innerText;
         }
         total.innerText = calculo;
     });
@@ -121,7 +121,7 @@ function crearLista() {
     group.appendChild(small);
 
     let spanTotal = document.createElement('span');
-    spanTotal.id = "total" + selector.value;
+    spanTotal.setAttribute('name', "total");
     spanTotal.classList.add("input-group-text");
     spanTotal.innerText = (calcularPrecio(categoriasConDescuento[selector.value]) * input.value).toFixed(2);
 
