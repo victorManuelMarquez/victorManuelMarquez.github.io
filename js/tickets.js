@@ -42,6 +42,16 @@ function actualizarTotal(descuento, cantidad) {
     return calcularPrecio(descuento) * cantidad; // descuento individual
 }
 
+function establecerMontoFinal() {
+    let total = document.getElementById('total');
+    let spanItems = group.querySelectorAll('span[name="total"]');
+    let calculo = 0;
+    for (let item of spanItems) {
+        calculo += item.innerText;
+    }
+    total.innerText = parseFloat(calculo).toFixed(2);
+}
+
 // CREO EL CUERPO DE LA LISTA
 function crearLista() {
     let carrito = document.getElementById('carrito');
@@ -104,13 +114,7 @@ function crearLista() {
     group.appendChild(input);
     input.addEventListener("input", (event) => {
         spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
-        let total = document.getElementById('total');
-        let spanItems = group.querySelectorAll('span[name="total"]');
-        let calculo = 0;
-        for (let item of spanItems) {
-            calculo += item.innerText;
-        }
-        total.innerText = parseFloat(calculo).toFixed(2);
+        establecerMontoFinal();
     });
 
     let small = document.createElement('small');
@@ -124,6 +128,8 @@ function crearLista() {
     spanTotal.innerText = (calcularPrecio(categoriasConDescuento[selector.value]) * input.value).toFixed(2);
 
     group.appendChild(spanTotal);
+    
+    establecerMontoFinal();
 }
 
 // LISTENERS
