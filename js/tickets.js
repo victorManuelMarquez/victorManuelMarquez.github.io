@@ -47,7 +47,7 @@ function establecerMontoFinal() {
     let spanItems = document.querySelectorAll('span[name="total"]');
     let calculo = 0;
     for (let item of spanItems) {
-        calculo += item.innerText;
+        calculo += parseFloat(item.innerText);
     }
     total.innerText = parseFloat(calculo).toFixed(2);
 }
@@ -119,6 +119,7 @@ function crearLista() {
     group.appendChild(small);
 
     let spanTotal = document.createElement('span');
+    spanTotal.id = selector.value;
     spanTotal.setAttribute('name', "total");
     spanTotal.classList.add("input-group-text");
     spanTotal.innerText = (calcularPrecio(categoriasConDescuento[selector.value]) * input.value).toFixed(2);
@@ -126,7 +127,7 @@ function crearLista() {
     group.appendChild(spanTotal);
     
     input.addEventListener("input", (event) => {
-        spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
+        spanTotal.innerText = actualizarTotal(categoriasConDescuento[spanTotal.id], event.target.value).toFixed(2);
         establecerMontoFinal();
     });
     
