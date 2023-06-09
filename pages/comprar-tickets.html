@@ -93,26 +93,29 @@
                 </div>
             </div>
         </div>
-        <form action="" class="container">
+        <form id="formulario" action="" class="container needs-validation" novalidate>
             <legend class="fw-normal fs-5 text-center">VENTA</legend>
             <h1 class="text-center">VALOR DE TICKET $200</h1>
             <fieldset>
                 <div class="row row-cols-1 row-cols-md-2 g-3 mb-3">
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Nombre" id="nombreCliente">
+                        <input type="text" class="form-control" placeholder="Nombre" id="nombreCliente" required>
+                        <div class="invalid-feedback">Ingrese un nombre válido!</div>
                     </div>
                     <div class="col">
-                        <input type="text" class="form-control" placeholder="Apellido" id="apellidoCliente">
+                        <input type="text" class="form-control" placeholder="Apellido" id="apellidoCliente" required>
+                        <div class="invalid-feedback">Ingrese un apellido válido!</div>
                     </div>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Correo" id="correoCliente">
+                    <input type="email" class="form-control" placeholder="Correo" id="correoCliente" required>
+                    <div class="invalid-feedback">Se requiere de un correo electrónico!</div>
                 </div>
             </fieldset>
             <div class="col">
                 <div class="mb-3">
                     <label for="categorias" class="form-label">Categoría</label>
-                    <select name="" id="categorias" class="form-select text-secondary">
+                    <select name="" id="categorias" class="form-select text-secondary" required>
                         <option value="">Seleccione...</option>
                     </select>
                 </div>
@@ -127,10 +130,10 @@
             <div class="mb-3">
                 <div class="row row-cols-1 row-cols-sm-2 g-3">
                     <div class="col">
-                        <input class="btn w-100 text-white" style="background-color: #97c93e;" type="button" value="Borrar">
+                        <button class="btn w-100 text-white" style="background-color: #97c93e;" type="reset">Borrar</button>
                     </div>
                     <div class="col">
-                        <input class="btn w-100 text-white" style="background-color: #97c93e;" type="button" value="Resumen">
+                        <button class="btn w-100 text-white" style="background-color: #97c93e;" type="submit">Resumen</button>
                     </div>
                 </div>
             </div>

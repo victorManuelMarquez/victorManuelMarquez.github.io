@@ -22,6 +22,10 @@ for (let categoria in categoriasConDescuento) {
     option.innerText = categoria;
     selector.appendChild(option);
 }
+let selectorFeedback = document.createElement('div');
+selectorFeedback.classList.add("invalid-feedfack");
+selectorFeedback.innerText = "Escoga una categoría";
+selector.appendChild(selectorFeedback);
 
 // ESTABLEZCO LAS RESTRICCIONES DEL INPUT "cantidad" u otro similar
 function restriccionesDeTickets(input) {
@@ -92,8 +96,11 @@ function crearLista() {
     let eliminar = document.createElement('button');
     eliminar.classList.add("btn");
     eliminar.innerText = "Borrar";
-    eliminar.addEventListener("click", () => group.remove());
-
+    eliminar.addEventListener("click", () => {
+        group.remove();
+        establecerMontoFinal();
+    });
+    
     ul.firstChild.appendChild(eliminar);
     group.appendChild(ul);
 
@@ -109,6 +116,8 @@ function crearLista() {
 
     let input = document.createElement('input');
     input.setAttribute('type', "number");
+    input.setAttribute('pattern', "[0-9]+");
+    input.setAttribute('inputmode', "numeric");
     input.classList.add("form-control");
     restriccionesDeTickets(input);
     group.appendChild(input);
@@ -140,3 +149,39 @@ selector.addEventListener("change", (event) => {
         crearLista();
     }
 });
+
+let resetBtn = document.querySelector('button[type="reset"]');
+if (resetBtn) {
+    resetBtn.addEventListener("click", () => {
+        let form = document.getElementById('formulario');
+        form.classList.remove("was-validated");
+        let carrito = document.getElementById('carrito');
+        for (let item of carrito.childNodes) {
+            carrito.removeChild(item);
+        }
+        let total = document.getElementById('total');
+        total.innerText = "0.00";
+    });
+}
+
+// Directo desde la documentación de Bootstrap
+
+// Example starter JavaScript for disabling form submissions if there are invalid fields
+(() => {
+    'use strict'
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    const forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.from(forms).forEach(form => {
+      form.addEventListener('submit', event => {
+        if (!form.checkValidity()) {
+          event.preventDefault()
+          event.stopPropagation()
+        }
+  
+        form.classList.add('was-validated')
+      }, false)
+    })
+  })()
