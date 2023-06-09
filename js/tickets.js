@@ -44,7 +44,7 @@ function actualizarTotal(descuento, cantidad) {
 
 function establecerMontoFinal() {
     let total = document.getElementById('total');
-    let spanItems = group.querySelectorAll('span[name="total"]');
+    let spanItems = document.querySelectorAll('span[name="total"]');
     let calculo = 0;
     for (let item of spanItems) {
         calculo += item.innerText;
