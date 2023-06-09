@@ -104,6 +104,13 @@ function crearLista() {
     group.appendChild(input);
     input.addEventListener("input", (event) => {
         spanTotal.innerText = actualizarTotal(categoriasConDescuento[selector.value], event.target.value).toFixed(2);
+        let total = document.getElementById('total');
+        let inputs = group.querySelectorAll('input[type="button"]');
+        let calculo = 0.0;
+        for (let numericalInput of inputs) {
+            calculo += numericalInput.innerText;
+        }
+        total.innerText = calculo;
     });
 
     let small = document.createElement('small');
