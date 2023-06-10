@@ -199,4 +199,46 @@ if (resetBtn) {
         form.classList.add('was-validated')
       }, false)
     })
-  })()
+})();
+
+let buttonTheme = document.getElementById('bd-theme');
+let iconTheme = buttonTheme.getElementsByTagName('i')[0];
+
+/**
+ * SOLO SOPORTA LIGHT AND DARK
+ * 
+ * @returns clase bootstrap para el ícono correspondiente al tema aplicado.
+ */
+function iconoDeTemaAplicado() {
+    let theme = document.documentElement.getAttribute('data-bs-theme');
+    if (theme === "light")
+        return "bi-brightness-high-fill";
+    else
+        return "bi-moon-stars-fill";
+}
+
+function aplicarTema(button, lista) {
+    lista.querySelector('.active').classList.remove("active");
+    button.classList.add("active");
+    iconTheme.classList.add(iconoDeTemaAplicado());
+    let value = button.getAttribute('data-bs-theme-value');
+    if (value === "auto") {
+        let theme = document.documentElement.getAttribute('data-bs-theme');
+        if (theme === "light")
+            document.documentElement.setAttribute('data-bs-theme', "dark");
+        else
+            document.documentElement.setAttribute('data-bs-theme', "light");
+    } else {
+        document.documentElement.setAttribute('data-bs-theme', value);
+    }
+}
+
+if (iconTheme) {
+    iconTheme.classList.add(iconoDeTemaAplicado());
+}
+
+let lista = document.querySelector('ul[aria-labelledby="bd-theme-text"]');
+for (let li of lista.getElementsByTagName('li')) {
+    let button = li.getElementsByTagName('button')[0];
+    button.addEventListener("click", () => aplicarTema(button, lista));
+}
