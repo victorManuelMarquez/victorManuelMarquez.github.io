@@ -115,6 +115,9 @@ function crearLista() {
         group.remove();
         establecerMontoFinal();
         selector.selectedIndex = 0;
+        if (!carrito.hasChildNodes()) {
+            selector.required = true;
+        }
     });
     
     ul.firstChild.appendChild(eliminar);
@@ -164,6 +167,7 @@ selector.addEventListener("change", (event) => {
     if (event.target.value) {
         crearLista();
         selector.selectedIndex = 0;
+        selector.required = false; // previene un falso campo inválido
     }
 });
 
